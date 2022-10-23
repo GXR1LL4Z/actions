@@ -11,8 +11,7 @@ class CountUntilServer:
         self.on_goal,
         auto_start = False)
         self._action_server.start()
-
-        self._counter = 0
+        self._counter = 0 
         rospy.loginfo('Simple action server has been started')
 
     def on_goal(self, goal):
