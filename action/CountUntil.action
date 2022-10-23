@@ -1,5 +1,5 @@
 #goal
-int64 max_numberf
+int64 max_number
 float64 wait_duration
 ---
 #result
