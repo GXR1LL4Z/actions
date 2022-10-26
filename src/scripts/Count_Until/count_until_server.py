@@ -23,8 +23,12 @@ class CountUntilServer:
         self._counter = 0
         rate = rospy.Rate(1/wait_duration)
         success = False
+        preemted = False
         while not rospy.is_shutdown():
             self._counter += 1
+            if self._action_server.is_preempt_requested():
+                preemted = True
+                break
             if self._counter > 9:
                 success = False
                 break
@@ -39,7 +43,10 @@ class CountUntilServer:
 
         result = CountUntilResult()
         result.count = self._counter
-        if success:
+        if preemted:
+            rospy.loginfo("preemted")
+            self._action_server.set_preempted(result)
+        elif success:
             self._action_server.set_succeeded(result)
         else:
             rospy.loginfo("Failure")
