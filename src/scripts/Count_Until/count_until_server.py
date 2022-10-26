@@ -18,7 +18,7 @@ class CountUntilServer:
     def on_goal(self, goal):
         rospy.loginfo("A goal has been reveived!")
         rospy.loginfo(goal)
-        max_number = goal.max_numberf
+        max_number = goal.max_number
         wait_duration = goal.wait_duration
         self._counter = 0
         rate = rospy.Rate(1/wait_duration)

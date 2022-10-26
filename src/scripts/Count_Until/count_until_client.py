@@ -12,7 +12,7 @@ class count_until_client:
         
     def send_goal(self):
         #potrzeba CountUntilGoal
-        goal = CountUntilGoal(max_numberf = 7, wait_duration = 0.5)            #z gory narzucamy jakie parametry zostana wyslane
+        goal = CountUntilGoal(max_number = 7, wait_duration = 0.5)            #z gory narzucamy jakie parametry zostana wyslane
         
         self._action_client.send_goal(goal, done_cb = self.done_callback, feedback_cb = self.feedback_callback)
         rospy.loginfo("Goal has been sent")
