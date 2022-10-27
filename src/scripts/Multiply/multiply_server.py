@@ -28,37 +28,37 @@ class multiply_server:
         #czas czekania
         rate = rospy.Rate(1/wait_duration)
         #obsługa informacji zwortnych
-        succes = False
-        preemted = False
+        # succes = False
+        # preemted = False
         #zmienne uzywane w mnozeniu 
-        self.counter_1 = 1
-        self.counter_2 = 1
+        self.counter_1 = 0
+        self.counter_2 = 0
         #zmienna tyu feedback
         self.feedback = MultiplyFeedback()        
         #petla wykonawcza
         #chce aby jako feedback byly zwracane operacje posrednie a jako wynika mnozenia dwoch danych liczb
         while not rospy.is_shutdown():
-            if self.counter_1 < value_1:
+            if self.counter_1 <= value_1:
                 result_1 = value_2 * self.counter_1
+                self.counter_1 = self.counter_1 + 1
                 self.feedback.feedback_1 = result_1
-            if self.counter_2 < value_2:
+            if self.counter_2 <= value_2:
                 result_2 = value_1 * self.counter_2
+                self.counter_2 = self.counter_2 + 1
                 self.feedback.feedback_2 = result_2 
-            if self.action_server.is_preempt_requested():
-                preemted = True
+            if self.counter_1 > value_1 and self.counter_2 > value_2:
                 break
-
+            # if self.action_server.is_preempt_requested():
+            #     preemted = True
+            #     break
             #publikowanie feedbacku
             self.action_server.publish_feedback(self.feedback)
             rate.sleep()
+            
         result = MultiplyResult()
         result.result = value_1 * value_2
-        if succes:
-            self.action_server.set_succeeded(result)
-        else:
-            self.action_server.set_aborted()
-        if preemted:
-            self.action_server.set_preempted()
+        self.action_server.set_succeeded(result)
+
 
 if __name__ == '__main__':
     rospy.init_node('multiply_server', anonymous = True)
