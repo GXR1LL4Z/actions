@@ -1,9 +1,11 @@
 #goal
 int16 a
 int16 b
+int16 wait_duration
 ---
 #result
 int32 result
 ---
 #feedback
-int16 feedback
+int16 feedback_1
+int16 feedback_2

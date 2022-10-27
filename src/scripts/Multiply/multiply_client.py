@@ -6,3 +6,4 @@ class multiply_client:
 
 if __name__ == '__main__':
     rospy.init_node('count_until_client', anonymous = True)
+    client = multiply_client()
