@@ -63,6 +63,7 @@ add_action_files(
   FILES
   CountUntil.action
   Multiply.action
+  Drive.action
 )
 
 # Generate added messages and services with any dependencies listed here
@@ -159,7 +160,8 @@ catkin_install_python(PROGRAMS src/scripts/Count_Until/count_until_server.py DES
 catkin_install_python(PROGRAMS src/scripts/Count_Until/count_until_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/Multiply/multiply_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/Multiply/multiply_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-
+catkin_install_python(PROGRAMS src/scripts/Drive/drive_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/Drive/drive_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html

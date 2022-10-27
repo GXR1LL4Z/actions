@@ -1,0 +1,15 @@
+#chce stworzyc action kt bedzie dostawała cel na plaszczyznie i bedzie musiała obracac silnikami 
+#tak aby ustawic sie prosto do celu nastepnie oba silniki prosto pelna moc 
+
+#goal
+int16 x
+int16 y
+---
+#result
+bool is_goal_reached
+---
+#feedback
+bool right_engine
+bool left_engine
+int16 actual_x
+int16 actual_y
