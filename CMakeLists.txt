@@ -156,11 +156,19 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 
-
+#count_Until
 catkin_install_python(PROGRAMS src/scripts/Count_Until/count_until_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/Count_Until/count_until_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#Multiply
 catkin_install_python(PROGRAMS src/scripts/Multiply/multiply_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/Multiply/multiply_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#Drive
+catkin_install_python(PROGRAMS src/scripts/Drive/drive_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/Drive/drive_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#count_2_0
 catkin_install_python(PROGRAMS src/scripts/Drive/drive_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/Drive/drive_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
