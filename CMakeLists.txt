@@ -169,8 +169,8 @@ catkin_install_python(PROGRAMS src/scripts/Drive/drive_server.py DESTINATION ${C
 catkin_install_python(PROGRAMS src/scripts/Drive/drive_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 #count_2_0
-catkin_install_python(PROGRAMS src/scripts/Drive/drive_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-catkin_install_python(PROGRAMS src/scripts/Drive/drive_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/count_2_0/count_2_0_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/count_2_0/count_2_0_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html

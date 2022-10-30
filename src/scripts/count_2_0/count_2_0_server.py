@@ -29,24 +29,31 @@ class count_server:
         preemted = False
         #feedback
         feedback  = count_2_0Feedback()
-        while not rospy.is_shutdown:
-            counter += counter
-            if counter == max_number:
+        while not rospy.is_shutdown():
+            counter += 1
+            if counter >= max_number:
+                
                 succes = True
                 break
             if self.server.is_preempt_requested():
+                
                 preemted = True
+                succes = False
                 break
-            feedback = float(counter)/float(max_number)
+            feedback.percentage = float(counter)/float(max_number)
             self.server.publish_feedback(feedback)
             rate.sleep()
         result = count_2_0Result()
-        result = counter
+        result.count = counter
         if succes:
+            result.result = True
             self.server.set_succeeded(result)
         elif preemted:
+            result.result = True
             self.server.set_preempted(result)
         else:
+            
+            result.result = False
             self.server.set_aborted(result)
 
 if __name__ == '__main__':
