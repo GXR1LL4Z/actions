@@ -21,7 +21,7 @@ class count_client:
     
     #funckcja obsugi feedbacku
     def feedback_callback(self, feedback):
-        rospy.loginfo("RECEIVED FEEDBACK: "+ str(feedback))
+        rospy.loginfo("RECEIVED FEEDBACK: "+ str(feedback.percentage*100)+"%")
     #funckja obsluigi rezultatu i statusu wykonaego dzialania
     def done_callback(self,status, result):
         rospy.loginfo("RECEIVED STATUS: "+ str(status))
