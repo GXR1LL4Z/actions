@@ -1,0 +1,10 @@
+#goal
+int16 max_number
+float64 wait_duration
+---
+#result
+int8 count 
+bool result
+---
+#feedback
+float64 percentage

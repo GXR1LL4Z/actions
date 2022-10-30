@@ -64,6 +64,7 @@ add_action_files(
   CountUntil.action
   Multiply.action
   Drive.action
+  count_2_0.action
 )
 
 # Generate added messages and services with any dependencies listed here
