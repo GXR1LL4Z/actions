@@ -1,4 +1,3 @@
-from enum import auto
 import rospy
 import actionlib
 import math
