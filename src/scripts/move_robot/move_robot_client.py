@@ -3,10 +3,12 @@ import actionlib
 
 from actions.msg import move_robotAction
 from actions.msg import move_robotGoal
+from std_msgs.msg import Empty
 
 class client:
     def __init__(self):
         self.client = actionlib.SimpleActionClient('move_robot', move_robotAction)
+        self.sub = rospy.Subscriber('cancel_move', Empty, self.cancel_move_cb)
         self.client.wait_for_server()
         rospy.loginfo("SERVER HAS BEEN DETECTED")
     
@@ -21,6 +23,10 @@ class client:
 
     def feedback_callback(self, feedback):
         rospy.loginfo("RECEIVED CURRENT POSITION: "+ str(feedback))
+
+    def cancel_move_cb(self, req):
+        rospy.loginfo("CANCELING THE GOAL")
+        self.client.cancel_all_goals()
 
 if __name__ == '__main__':
     rospy.init_node('move_robot_client', anonymous = True)
