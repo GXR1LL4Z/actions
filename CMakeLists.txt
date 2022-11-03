@@ -65,6 +65,7 @@ add_action_files(
   Multiply.action
   Drive.action
   count_2_0.action
+  move_robot.action
 )
 
 # Generate added messages and services with any dependencies listed here
@@ -171,6 +172,10 @@ catkin_install_python(PROGRAMS src/scripts/Drive/drive_client.py DESTINATION ${C
 #count_2_0
 catkin_install_python(PROGRAMS src/scripts/count_2_0/count_2_0_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/count_2_0/count_2_0_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+#move_robot
+catkin_install_python(PROGRAMS src/scripts/move_robot/move_robot_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/move_robot/move_robot_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
