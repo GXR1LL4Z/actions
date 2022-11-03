@@ -31,30 +31,33 @@ class Server:
 
         while not rospy.is_shutdown():
             
-            if self.server.is_preempt_requested:
+            if self.server.is_preempt_requested():
                 preempted = True
+                succes = False
                 break
             if self.position >= self.goal_position:
                 succes = True
+                preempted = False
                 break
-            if self.position < self.goal_position: 
-                self.position = self.position + 1
-                feedback.current_position = self.position
-                self.server.publish_feedback(feedback)
-                rate.sleep()
+            
+            self.position = self.position + 1
+            feedback.current_position = self.position
+            self.server.publish_feedback(feedback)
+            rate.sleep()
 
-            result = move_robotResult()
-            result.reached_position = self.position
-            if succes:
-                result.message = "The goal has been achived"
-                self.server.set_succeeded(result)
-            elif preempted:
-                result.message = "The procces has been preemted"
-                self.server.set_preempted(result)
-            else:
-                result.message = "ERROR"
-                self.server.set_aborted(result)
+        result = move_robotResult()
+        result.reached_position = self.position
+        if succes:
+            result.message = "The goal has been achived"
+            self.server.set_succeeded(result)
+        elif preempted:
+            result.message = "The procces has been preemted"
+            self.server.set_preempted(result)
+        else:
+            result.message = "ERROR"
+            self.server.set_aborted(result)
 
 if __name__ == '__main__':
     rospy.init_node('move_robot_server', anonymous = True)
     server = Server()
+    rospy.spin()
