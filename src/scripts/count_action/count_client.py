@@ -6,9 +6,10 @@ from actions.msg import CountUntilFeedback
 from actions.msg import CountUntilGoal
 from actions.msg import CountUntilResult
 
-class server:
+class count_client:
     def __init__(self):
         pass
 
 if __name__ == '__main__':
-    pass
+    rospy.init_node('count_client', anonymous = True)
+    client_ = count_client()
