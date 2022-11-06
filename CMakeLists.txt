@@ -177,6 +177,10 @@ catkin_install_python(PROGRAMS src/scripts/count_2_0/count_2_0_client.py DESTINA
 catkin_install_python(PROGRAMS src/scripts/move_robot/move_robot_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 catkin_install_python(PROGRAMS src/scripts/move_robot/move_robot_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
+#count_action
+catkin_install_python(PROGRAMS src/scripts/count_action/count_server.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+catkin_install_python(PROGRAMS src/scripts/count_action/count_client.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
 # install(TARGETS ${PROJECT_NAME}_node
